@@ -15,5 +15,5 @@ make_and_copy() {
 make_and_copy 'resources/admin'
 make_and_copy 'resources/template/common'
 check_and_copy 'conf'
-check_and_copy 'resources/template/theme'
+check_and_copy 'resources/template/themes'
 

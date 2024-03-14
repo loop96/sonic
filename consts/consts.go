@@ -33,7 +33,7 @@ var (
 )
 
 const (
-	DefaultThemeID         = "caicai_anatole"
+	DefaultThemeID         = "sonic-theme-papermod-main"
 	ThemeScreenshotsName   = "screenshot"
 	ThemeCustomSheetPrefix = "sheet_"
 	ThemeCustomPostPrefix  = "post_"

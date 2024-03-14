@@ -2,6 +2,7 @@ package theme
 
 import (
 	"context"
+	"github.com/go-sonic/sonic/util"
 	"io"
 	"os"
 	"path/filepath"
@@ -64,7 +65,9 @@ func (s *propertyScannerImpl) ListAll(ctx context.Context, themeRootPath string)
 	}
 
 	for _, themeDir := range themeDirs {
-		if themeDir.IsDir() {
+		emptyFlag, _ := util.IsDirEmpty(filepath.Join(themeRootPath, themeDir.Name()))
+
+		if themeDir.IsDir() && !emptyFlag {
 			themeProperty, err := s.ReadThemeProperty(ctx, filepath.Join(themeRootPath, themeDir.Name()))
 			if err != nil {
 				return nil, err

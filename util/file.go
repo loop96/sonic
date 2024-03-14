@@ -227,3 +227,26 @@ func MakeDir(dir string) error {
 	}
 	return nil
 }
+
+// IsDirEmpty checks if a directory is empty
+func IsDirEmpty(dirPath string) (bool, error) {
+	f, err := os.Open(dirPath)
+	if err != nil {
+		return false, err
+	}
+
+	defer func() {
+		_ = f.Close()
+	}()
+
+	// Attempt to read at least one entry from the directory
+	_, err = f.Readdir(1)
+
+	// If EOF is returned, the directory is empty
+	if err == io.EOF {
+		return true, nil
+	}
+
+	// If we read at least one entry or encountered an error, the directory is not empty
+	return false, err
+}

@@ -68,7 +68,7 @@ func NewConfig() *Config {
 	normalizeDir(&conf.Sonic.TemplateDir, "resources/template")
 	normalizeDir(&conf.Sonic.AdminResourcesDir, "resources/admin")
 	normalizeDir(&conf.Sonic.UploadDir, consts.SonicUploadDir)
-	normalizeDir(&conf.Sonic.ThemeDir, "resources/template/theme")
+	normalizeDir(&conf.Sonic.ThemeDir, "resources/template/themes")
 	if conf.SQLite3 != nil && conf.SQLite3.Enable {
 		normalizeDir(&conf.SQLite3.File, "sonic.db")
 	}
